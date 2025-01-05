@@ -25,7 +25,7 @@ class TechnitiumDNSApi:
         for attempt in range(retries):
             async with aiohttp.ClientSession() as session:
                 try:
-                    with async_timeout.timeout(20):  # Increase timeout to 20 seconds
+                    with async_timeout.timeout(600):  # Increase timeout to 600 seconds
                         _LOGGER.debug("Requesting URL: %s (Attempt %d)", url, attempt + 1)
                         async with session.get(url, params=params) as response:
                             response.raise_for_status()
